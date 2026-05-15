@@ -2,18 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: development-deployment
+  namespace: dev
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: dev-app
+      app: development
   template:
     metadata:
       labels:
-        app: dev-app
+        app: development
     spec:
       containers:
-      - name: dev-container
+      - name: development
         image: us-east4-docker.pkg.dev/qwiklabs-gcp-04-df6fabcee64f/my-repository/dev-image:v2.0
         ports:
         - containerPort: 8080
